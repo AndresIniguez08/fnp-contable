@@ -946,9 +946,15 @@
         color: var(--azul-marino);
         position: relative;
       }
-      #calculadora .eyebrow { color: var(--verde-oscuro); }
-      #calculadora .section-title { color: var(--azul-marino); }
-      #calculadora .section-subtitle { color: rgba(27, 42, 74, 0.68); }
+      #calculadora .eyebrow {
+        color: var(--verde-oscuro);
+      }
+      #calculadora .section-title {
+        color: var(--azul-marino);
+      }
+      #calculadora .section-subtitle {
+        color: rgba(27, 42, 74, 0.68);
+      }
 
       .calc-wrapper {
         max-width: 700px;
@@ -962,12 +968,23 @@
         align-items: start;
       }
       @media (min-width: 768px) {
-        .calc-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .calc-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
       }
 
-      .calc-form { display: flex; flex-direction: column; gap: 1.25rem; }
+      .calc-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
 
-      .calc-field { display: flex; flex-direction: column; gap: 0.45rem; }
+      .calc-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
 
       .calc-label {
         font-family: "Montserrat", sans-serif;
@@ -1000,10 +1017,18 @@
       }
       /* Quitar flechas del input number */
       .calc-input::-webkit-outer-spin-button,
-      .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; appearance: none; margin: 0; }
-      .calc-input[type="number"] { -moz-appearance: textfield; }
+      .calc-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+      .calc-input[type="number"] {
+        -moz-appearance: textfield;
+      }
 
-      .calc-select-wrap { position: relative; }
+      .calc-select-wrap {
+        position: relative;
+      }
       .calc-select-wrap::after {
         content: "▾";
         position: absolute;
@@ -1041,7 +1066,11 @@
         box-shadow: var(--sombra-verde-hover);
       }
 
-      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
       .calc-spinner {
         width: 18px;
         height: 18px;
@@ -1051,8 +1080,12 @@
         animation: spin 0.45s linear infinite;
         display: none;
       }
-      .calc-btn.loading .calc-spinner { display: block; }
-      .calc-btn.loading .calc-btn-text { display: none; }
+      .calc-btn.loading .calc-spinner {
+        display: block;
+      }
+      .calc-btn.loading .calc-btn-text {
+        display: none;
+      }
 
       .calc-error {
         color: #e74c3c;
@@ -1061,7 +1094,9 @@
         margin-top: 0.2rem;
         display: none;
       }
-      .calc-error.show { display: block; }
+      .calc-error.show {
+        display: block;
+      }
 
       /* Resultado */
       .calc-resultado {
@@ -1070,7 +1105,9 @@
         padding: 2rem 1.75rem;
         opacity: 0;
         transform: translateY(10px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease;
         pointer-events: none;
       }
       .calc-resultado.visible {
@@ -1084,7 +1121,11 @@
         padding-bottom: 1.25rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
-      .calc-res-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+      .calc-res-row:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
 
       .calc-res-label {
         font-family: "Montserrat", sans-serif;
@@ -1131,7 +1172,9 @@
         display: none;
         margin-bottom: 1.25rem;
       }
-      .calc-badge-warning.show { display: block; }
+      .calc-badge-warning.show {
+        display: block;
+      }
 
       .calc-disclaimer {
         font-size: 0.7rem;
@@ -1166,7 +1209,9 @@
         padding: 2rem 1.75rem;
         opacity: 0;
         transform: translateY(10px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease;
         pointer-events: none;
         display: none;
       }
@@ -1191,8 +1236,13 @@
       }
 
       /* ─── FAQ ─── */
-      #faq { background: var(--azul-marino); }
-      #faq .section-subtitle { max-width: 520px; margin: 0 auto; }
+      #faq {
+        background: var(--azul-marino);
+      }
+      #faq .section-subtitle {
+        max-width: 520px;
+        margin: 0 auto;
+      }
 
       .faq-wrapper {
         max-width: 800px;
@@ -1204,7 +1254,9 @@
         border-left: 3px solid transparent;
         transition: border-left-color 0.3s;
       }
-      .faq-item.open { border-left-color: var(--verde-principal); }
+      .faq-item.open {
+        border-left-color: var(--verde-principal);
+      }
 
       .faq-header {
         display: flex;
@@ -1240,14 +1292,18 @@
         flex-shrink: 0;
         transition: transform 0.3s ease;
       }
-      .faq-item.open .faq-icon { transform: rotate(45deg); }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+      }
 
       .faq-body {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease;
       }
-      .faq-item.open .faq-body { max-height: 500px; }
+      .faq-item.open .faq-body {
+        max-height: 500px;
+      }
 
       .faq-answer {
         font-size: 0.95rem;
@@ -1284,8 +1340,12 @@
         letter-spacing: 0.05em;
         transition: color 0.3s ease;
       }
-      .footer-dev-link:hover { color: var(--verde-principal); }
-      .footer-dev-accent { color: var(--verde-principal); }
+      .footer-dev-link:hover {
+        color: var(--verde-principal);
+      }
+      .footer-dev-accent {
+        color: var(--verde-principal);
+      }
 
       /* ─── CONTACTO ─── */
       #contacto {
@@ -1846,7 +1906,8 @@
               <div class="pilar-numero" aria-hidden="true">01</div>
               <h3 class="pilar-titulo">Tus Números</h3>
               <p class="pilar-desc">
-                Si no sabés cuánto te queda después de gastos, estás trabajando a ciegas.
+                Si no sabés cuánto te queda después de gastos, estás trabajando
+                a ciegas.
               </p>
               <div class="pilar-highlight">
                 Con las finanzas en orden tomás mejores decisiones.
@@ -1868,7 +1929,8 @@
               <div class="pilar-numero" aria-hidden="true">02</div>
               <h3 class="pilar-titulo">Tu Estructura</h3>
               <p class="pilar-desc">
-                Cuando todo pasa por vos y no hay procesos, el negocio no crece, te agota.
+                Cuando todo pasa por vos y no hay procesos, el negocio no crece,
+                te agota.
               </p>
               <div class="pilar-highlight">
                 El caos interno tiene un costo que no se ve en la factura.
@@ -1904,26 +1966,41 @@
     <!-- ════════════════════════════════════════
        CALCULADORA DE MONOTRIBUTO
   ════════════════════════════════════════ -->
-    <section id="calculadora" aria-label="Calculadora de categoría de Monotributo">
+    <section
+      id="calculadora"
+      aria-label="Calculadora de categoría de Monotributo"
+    >
       <div class="container">
-
         <header class="section-header">
-          <span class="eyebrow"
-                data-aos="fade-up" data-aos-duration="600">HERRAMIENTA GRATUITA</span>
-          <h2 class="section-title"
-              data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+          <span class="eyebrow" data-aos="fade-up" data-aos-duration="600"
+            >HERRAMIENTA GRATUITA</span
+          >
+          <h2
+            class="section-title"
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay="100"
+          >
             Calculá tu categoría de Monotributo
           </h2>
-          <p class="section-subtitle"
-             data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
-            Ingresá tu facturación anual estimada y descubrí en qué categoría estás
-            y cuánto deberías pagar. Valores vigentes mayo 2026.
+          <p
+            class="section-subtitle"
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay="200"
+          >
+            Ingresá tu facturación anual estimada y descubrí en qué categoría
+            estás y cuánto deberías pagar. Valores vigentes mayo 2026.
           </p>
         </header>
 
         <div class="calc-wrapper">
-          <div class="calc-grid" data-aos="fade-up" data-aos-duration="700" data-aos-delay="150">
-
+          <div
+            class="calc-grid"
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay="150"
+          >
             <!-- Formulario -->
             <div class="calc-form" id="calc-form">
               <div class="calc-field">
@@ -1939,20 +2016,33 @@
                   autocomplete="off"
                   aria-describedby="calc-error-msg"
                 />
-                <span class="calc-error" id="calc-error-msg" role="alert"></span>
+                <span
+                  class="calc-error"
+                  id="calc-error-msg"
+                  role="alert"
+                ></span>
               </div>
 
               <div class="calc-field">
-                <label class="calc-label" for="calc-tipo">Tipo de actividad</label>
+                <label class="calc-label" for="calc-tipo"
+                  >Tipo de actividad</label
+                >
                 <div class="calc-select-wrap">
                   <select class="calc-select" id="calc-tipo">
                     <option value="servicios">Prestación de servicios</option>
-                    <option value="productos">Venta de productos / bienes</option>
+                    <option value="productos">
+                      Venta de productos / bienes
+                    </option>
                   </select>
                 </div>
               </div>
 
-              <button class="calc-btn" id="calc-btn" type="button" aria-label="Calcular categoría de Monotributo">
+              <button
+                class="calc-btn"
+                id="calc-btn"
+                type="button"
+                aria-label="Calcular categoría de Monotributo"
+              >
                 <span class="calc-spinner" aria-hidden="true"></span>
                 <span class="calc-btn-text">Calcular mi categoría</span>
               </button>
@@ -1960,16 +2050,23 @@
 
             <!-- Panel de resultado -->
             <div aria-live="polite" aria-atomic="true">
-
               <!-- Resultado normal -->
-              <div class="calc-resultado" id="calc-resultado" role="region" aria-label="Resultado del cálculo">
-
+              <div
+                class="calc-resultado"
+                id="calc-resultado"
+                role="region"
+                aria-label="Resultado del cálculo"
+              >
                 <div class="calc-res-row">
                   <span class="calc-res-label">Tu categoría</span>
                   <div class="calc-res-cat" id="calc-res-letra">—</div>
                 </div>
 
-                <div class="calc-badge-warning" id="calc-badge" aria-live="polite">
+                <div
+                  class="calc-badge-warning"
+                  id="calc-badge"
+                  aria-live="polite"
+                >
                   ⚠ Estás cerca del límite. Revisá tu categoría pronto.
                 </div>
 
@@ -1979,7 +2076,9 @@
                 </div>
 
                 <div class="calc-res-row">
-                  <span class="calc-res-label">Límite de facturación anual</span>
+                  <span class="calc-res-label"
+                    >Límite de facturación anual</span
+                  >
                   <div class="calc-res-tope-val" id="calc-res-tope">—</div>
                 </div>
 
@@ -1991,152 +2090,243 @@
 
                 <div class="calc-res-row">
                   <p class="calc-disclaimer">
-                    * Valores vigentes febrero–julio 2026 según ARCA. La cuota final puede
-                    variar según superficie, energía y alquileres. Esta calculadora es
-                    orientativa. Para un análisis preciso, consultá con un contador.
+                    * Valores vigentes febrero–julio 2026 según ARCA. La cuota
+                    final puede variar según superficie, energía y alquileres.
+                    Esta calculadora es orientativa. Para un análisis preciso,
+                    consultá con un contador.
                   </p>
                 </div>
-
               </div>
 
               <!-- Supera el tope de K -->
-              <div class="calc-supera" id="calc-supera" role="region" aria-label="Aviso: facturación supera límite del Monotributo">
+              <div
+                class="calc-supera"
+                id="calc-supera"
+                role="region"
+                aria-label="Aviso: facturación supera límite del Monotributo"
+              >
                 <p class="calc-supera-titulo">
                   Tu facturación supera el límite del Monotributo.
                 </p>
                 <p>
                   Deberías analizar el pase a Responsable Inscripto. Este cambio
-                  implica nuevas obligaciones pero también puede abrir oportunidades
-                  para tu negocio.
+                  implica nuevas obligaciones pero también puede abrir
+                  oportunidades para tu negocio.
                 </p>
                 <a href="#contacto" class="calc-res-cta">
                   Consultá con Facundo →
                 </a>
               </div>
-
-            </div><!-- /aria-live -->
-          </div><!-- /calc-grid -->
-        </div><!-- /calc-wrapper -->
-
+            </div>
+            <!-- /aria-live -->
+          </div>
+          <!-- /calc-grid -->
+        </div>
+        <!-- /calc-wrapper -->
       </div>
     </section>
-
 
     <!-- ════════════════════════════════════════
        FAQ
   ════════════════════════════════════════ -->
     <section id="faq" aria-label="Preguntas frecuentes">
       <div class="container">
-
         <header class="section-header">
-          <span class="eyebrow"
-                data-aos="fade-up" data-aos-duration="600">PREGUNTAS FRECUENTES</span>
-          <h2 class="section-title"
-              data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+          <span class="eyebrow" data-aos="fade-up" data-aos-duration="600"
+            >PREGUNTAS FRECUENTES</span
+          >
+          <h2
+            class="section-title"
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay="100"
+          >
             Lo que más me preguntan
           </h2>
-          <p class="section-subtitle"
-             data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+          <p
+            class="section-subtitle"
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay="200"
+          >
             Si tu duda no está acá, escribime directamente.
           </p>
         </header>
 
         <div class="faq-wrapper">
-
-          <div class="faq-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="50">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <span class="faq-question">¿Cada cuánto tengo que recategorizarme en el monotributo?</span>
+          <div
+            class="faq-item"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="50"
+          >
+            <div
+              class="faq-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <span class="faq-question"
+                >¿Cada cuánto tengo que recategorizarme en el monotributo?</span
+              >
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="faq-body">
               <p class="faq-answer">
-                La recategorización es obligatoria dos veces al año: en enero y en julio.
-                Tenés que revisar los últimos 12 meses de facturación y ajustar tu categoría
-                si corresponde. Si no lo hacés y ARCA detecta diferencias, la recategorización
-                la hacen ellos y podés tener intereses y multas.
+                La recategorización es obligatoria dos veces al año: en enero y
+                en julio. Tenés que revisar los últimos 12 meses de facturación
+                y ajustar tu categoría si corresponde. Si no lo hacés y ARCA
+                detecta diferencias, la recategorización la hacen ellos y podés
+                tener intereses y multas.
               </p>
             </div>
           </div>
 
-          <div class="faq-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <span class="faq-question">¿Qué pasa si no pago el monotributo durante varios meses?</span>
+          <div
+            class="faq-item"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="100"
+          >
+            <div
+              class="faq-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <span class="faq-question"
+                >¿Qué pasa si no pago el monotributo durante varios meses?</span
+              >
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="faq-body">
               <p class="faq-answer">
-                Si acumulás 10 meses sin pagar, ARCA puede darte de baja del monotributo
-                de forma automática y sin avisarte. Eso significa perder la obra social,
-                los aportes jubilatorios y quedar irregular ante el fisco. Lo ideal es
-                regularizar antes de llegar a ese punto.
+                Si acumulás 10 meses sin pagar, ARCA puede darte de baja del
+                monotributo de forma automática y sin avisarte. Eso significa
+                perder la obra social, los aportes jubilatorios y quedar
+                irregular ante el fisco. Lo ideal es regularizar antes de llegar
+                a ese punto.
               </p>
             </div>
           </div>
 
-          <div class="faq-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <span class="faq-question">¿Conviene ser monotributista o responsable inscripto?</span>
+          <div
+            class="faq-item"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="150"
+          >
+            <div
+              class="faq-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <span class="faq-question"
+                >¿Conviene ser monotributista o responsable inscripto?</span
+              >
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="faq-body">
               <p class="faq-answer">
-                Depende de tu nivel de facturación, el tipo de clientes que tenés y si trabajás
-                con empresas que necesitan factura A. El monotributo es más simple y económico
-                hasta cierto nivel. Si superás el tope o empezás a vender a empresas grandes,
-                el RI puede ser más conveniente. Esto es algo que vale la pena analizar
-                puntualmente con un contador.
+                Depende de tu nivel de facturación, el tipo de clientes que
+                tenés y si trabajás con empresas que necesitan factura A. El
+                monotributo es más simple y económico hasta cierto nivel. Si
+                superás el tope o empezás a vender a empresas grandes, el RI
+                puede ser más conveniente. Esto es algo que vale la pena
+                analizar puntualmente con un contador.
               </p>
             </div>
           </div>
 
-          <div class="faq-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <span class="faq-question">¿ARCA puede ver lo que me depositan en el banco?</span>
+          <div
+            class="faq-item"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="200"
+          >
+            <div
+              class="faq-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <span class="faq-question"
+                >¿ARCA puede ver lo que me depositan en el banco?</span
+              >
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="faq-body">
               <p class="faq-answer">
-                Sí. ARCA cruza información con bancos, procesadoras de pago (Mercado Pago,
-                Naranja X, etc.) y otros organismos. Los depósitos y acreditaciones que no
-                coinciden con tu facturación declarada pueden generar controles. Por eso es
-                importante que lo que facturás refleje lo que realmente ingresa.
+                Sí. ARCA cruza información con bancos, procesadoras de pago
+                (Mercado Pago, Naranja X, etc.) y otros organismos. Los
+                depósitos y acreditaciones que no coinciden con tu facturación
+                declarada pueden generar controles. Por eso es importante que lo
+                que facturás refleje lo que realmente ingresa.
               </p>
             </div>
           </div>
 
-          <div class="faq-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="250">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <span class="faq-question">¿Puedo tener monotributo y trabajar en relación de dependencia?</span>
+          <div
+            class="faq-item"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="250"
+          >
+            <div
+              class="faq-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <span class="faq-question"
+                >¿Puedo tener monotributo y trabajar en relación de
+                dependencia?</span
+              >
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="faq-body">
               <p class="faq-answer">
-                Sí, es perfectamente compatible. Podés ser empleado en relación de dependencia
-                y además tener monotributo por una actividad independiente. Hay que tener en
-                cuenta cómo se combinan los aportes para no pagar de más.
+                Sí, es perfectamente compatible. Podés ser empleado en relación
+                de dependencia y además tener monotributo por una actividad
+                independiente. Hay que tener en cuenta cómo se combinan los
+                aportes para no pagar de más.
               </p>
             </div>
           </div>
 
-          <div class="faq-item" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-            <div class="faq-header" role="button" tabindex="0" aria-expanded="false">
-              <span class="faq-question">¿Cuándo conviene contratar un contador si soy monotributista?</span>
+          <div
+            class="faq-item"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-delay="300"
+          >
+            <div
+              class="faq-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <span class="faq-question"
+                >¿Cuándo conviene contratar un contador si soy
+                monotributista?</span
+              >
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="faq-body">
               <p class="faq-answer">
-                Desde el momento en que empezás a facturar con cierta regularidad. Un contador
-                no solo te ayuda a liquidar impuestos: te avisa antes de que cometas errores
-                que después salen caros. El costo del servicio generalmente es mucho menor que
-                el costo de una multa o una recategorización mal hecha.
+                Desde el momento en que empezás a facturar con cierta
+                regularidad. Un contador no solo te ayuda a liquidar impuestos:
+                te avisa antes de que cometas errores que después salen caros.
+                El costo del servicio generalmente es mucho menor que el costo
+                de una multa o una recategorización mal hecha.
               </p>
             </div>
           </div>
-
-        </div><!-- /faq-wrapper -->
+        </div>
+        <!-- /faq-wrapper -->
       </div>
     </section>
-
 
     <!-- ════════════════════════════════════════
        CONTACTO / CTA FINAL
@@ -2258,14 +2448,16 @@
             </a>
           </div>
         </div>
-        <hr class="footer-dev-line" aria-hidden="true">
+        <hr class="footer-dev-line" aria-hidden="true" />
         <div class="footer-dev">
           <span>Diseñado y desarrollado por</span>
-          <a href="https://pulsowebstudio.com.ar/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="footer-dev-link"
-             aria-label="Pulso Web Studio - Desarrollo web profesional">
+          <a
+            href="https://pulsowebstudio.com.ar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-dev-link"
+            aria-label="Pulso Web Studio - Desarrollo web profesional"
+          >
             pulso<span class="footer-dev-accent">web</span>studio
           </a>
         </div>
@@ -2383,29 +2575,87 @@
       // ─── CALCULADORA DE MONOTRIBUTO ───
       // ACTUALIZAR valores en julio 2026 con los nuevos montos de ARCA
       const categoriasMono = [
-        { letra: "A", tope: 10277988.13,  servicios: 42386.74,   productos: 42386.74  },
-        { letra: "B", tope: 15058447.71,  servicios: 48250.78,   productos: 48250.78  },
-        { letra: "C", tope: 21113696.52,  servicios: 56501.85,   productos: 55227.06  },
-        { letra: "D", tope: 26212853.42,  servicios: 72414.10,   productos: 70661.26  },
-        { letra: "E", tope: 30979049.81,  servicios: 102537.97,  productos: 98811.35  },
-        { letra: "F", tope: 38861288.38,  servicios: 136180.16,  productos: 131051.01 },
-        { letra: "G", tope: 48235018.35,  servicios: 182094.77,  productos: 175123.95 },
-        { letra: "H", tope: 63190680.14,  servicios: 447346.93,  productos: 245785.62 },
-        { letra: "I", tope: 75828816.17,  servicios: 570019.51,  productos: 312875.75 },
-        { letra: "J", tope: 90994579.40,  servicios: 826299.37,  productos: 453387.39 },
-        { letra: "K", tope: 108357084.05, servicios: 1381687.90, productos: 600879.51 }
+        {
+          letra: "A",
+          tope: 10277988.13,
+          servicios: 42386.74,
+          productos: 42386.74,
+        },
+        {
+          letra: "B",
+          tope: 15058447.71,
+          servicios: 48250.78,
+          productos: 48250.78,
+        },
+        {
+          letra: "C",
+          tope: 21113696.52,
+          servicios: 56501.85,
+          productos: 55227.06,
+        },
+        {
+          letra: "D",
+          tope: 26212853.42,
+          servicios: 72414.1,
+          productos: 70661.26,
+        },
+        {
+          letra: "E",
+          tope: 30979049.81,
+          servicios: 102537.97,
+          productos: 98811.35,
+        },
+        {
+          letra: "F",
+          tope: 38861288.38,
+          servicios: 136180.16,
+          productos: 131051.01,
+        },
+        {
+          letra: "G",
+          tope: 48235018.35,
+          servicios: 182094.77,
+          productos: 175123.95,
+        },
+        {
+          letra: "H",
+          tope: 63190680.14,
+          servicios: 447346.93,
+          productos: 245785.62,
+        },
+        {
+          letra: "I",
+          tope: 75828816.17,
+          servicios: 570019.51,
+          productos: 312875.75,
+        },
+        {
+          letra: "J",
+          tope: 90994579.4,
+          servicios: 826299.37,
+          productos: 453387.39,
+        },
+        {
+          letra: "K",
+          tope: 108357084.05,
+          servicios: 1381687.9,
+          productos: 600879.51,
+        },
       ];
 
       function formatARS(num) {
-        return num.toLocaleString("es-AR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        return num.toLocaleString("es-AR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
       }
 
-      const calcInput   = document.getElementById("calc-facturacion");
-      const calcTipo    = document.getElementById("calc-tipo");
-      const calcBtn     = document.getElementById("calc-btn");
+      const calcInput = document.getElementById("calc-facturacion");
+      const calcTipo = document.getElementById("calc-tipo");
+      const calcBtn = document.getElementById("calc-btn");
       const calcErrorEl = document.getElementById("calc-error-msg");
-      const calcRes     = document.getElementById("calc-resultado");
-      const calcSupera  = document.getElementById("calc-supera");
+      const calcRes = document.getElementById("calc-resultado");
+      const calcSupera = document.getElementById("calc-supera");
 
       function resetCalcUI() {
         calcErrorEl.textContent = "";
@@ -2418,9 +2668,9 @@
       function calcularMonotributo() {
         resetCalcUI();
 
-        const raw   = calcInput.value.trim();
+        const raw = calcInput.value.trim();
         const valor = parseFloat(raw);
-        const tipo  = calcTipo.value;
+        const tipo = calcTipo.value;
 
         if (!raw) {
           calcErrorEl.textContent = "Ingresá tu facturación anual.";
@@ -2446,13 +2696,17 @@
             return;
           }
 
-          const cuota        = tipo === "servicios" ? cat.servicios : cat.productos;
-          const cercaLimite  = valor >= cat.tope * 0.80;
+          const cuota = tipo === "servicios" ? cat.servicios : cat.productos;
+          const cercaLimite = valor >= cat.tope * 0.8;
 
           document.getElementById("calc-res-letra").textContent = cat.letra;
-          document.getElementById("calc-res-cuota").textContent = "$" + formatARS(cuota);
-          document.getElementById("calc-res-tope").textContent  = "$" + formatARS(cat.tope);
-          document.getElementById("calc-badge").classList.toggle("show", cercaLimite);
+          document.getElementById("calc-res-cuota").textContent =
+            "$" + formatARS(cuota);
+          document.getElementById("calc-res-tope").textContent =
+            "$" + formatARS(cat.tope);
+          document
+            .getElementById("calc-badge")
+            .classList.toggle("show", cercaLimite);
 
           requestAnimationFrame(() => calcRes.classList.add("visible"));
         }, 400);
@@ -2473,7 +2727,10 @@
           const isOpen = item.classList.contains("open");
           document.querySelectorAll(".faq-item.open").forEach((el) => {
             el.classList.remove("open");
-            el.querySelector(".faq-header").setAttribute("aria-expanded", "false");
+            el.querySelector(".faq-header").setAttribute(
+              "aria-expanded",
+              "false",
+            );
           });
           if (!isOpen) {
             item.classList.add("open");
@@ -2483,7 +2740,10 @@
 
         header.addEventListener("click", toggle);
         header.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggle();
+          }
         });
       });
     </script>
