@@ -2306,6 +2306,14 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <script>
+      // ─── LIMPIAR HASH DE LA URL AL CARGAR ───
+      // Evita que el browser scrollee automáticamente a un #anchor al abrir la página
+      if (window.location.hash) {
+        // Elimina el hash de la URL sin recargar la página
+        history.replaceState(null, "", window.location.pathname);
+        // Fuerza el scroll al top
+        window.scrollTo(0, 0);
+      }
       // ─── AOS ───
       AOS.init({ once: true, offset: 80 });
 
