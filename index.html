@@ -241,7 +241,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 1000;
+        z-index: 9999;
         padding: 1.25rem 0;
         background: transparent;
         transition:
@@ -1532,30 +1532,49 @@
           position: fixed;
           top: 0;
           left: 0;
-          width: 100%;
+          width: 100vw;
           height: 100vh;
-          background: #1b2a4a;
-          z-index: 999;
+          background: rgba(27, 42, 74, 0.98);
+          z-index: 9998;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           gap: 2rem;
+          padding: 80px 20px 40px;
 
-          /* Estado cerrado */
           opacity: 0;
           visibility: hidden;
-          transform: translateY(-100%);
+          transform: translateY(-8px);
           transition:
             opacity 0.3s ease,
             transform 0.3s ease,
             visibility 0.3s ease;
+          pointer-events: none;
         }
 
         .nav-menu.active {
           opacity: 1;
           visibility: visible;
           transform: translateY(0);
+          pointer-events: all;
+        }
+
+        .nav-menu a {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+          font-size: 1.5rem;
+          color: #ffffff;
+          text-decoration: none;
+          text-align: center;
+          padding: 12px 24px;
+          transition: color 0.2s ease;
+          position: relative;
+          z-index: 1;
+        }
+
+        .nav-menu a:hover {
+          color: #2ecc71;
         }
       }
 
@@ -1565,6 +1584,46 @@
 ────────────────────────────────────────── */
       body.menu-open {
         overflow: hidden;
+      }
+
+      /* ─── FIX 1 — HERO MOBILE + FIX 3 — BACK-TO-TOP MOBILE ─── */
+      @media (max-width: 768px) {
+        .hero-text {
+          padding: 0 20px;
+          width: 100%;
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        .hero-title {
+          font-size: clamp(2.2rem, 10vw, 3.5rem);
+          word-break: break-word;
+          hyphens: auto;
+          white-space: normal;
+        }
+
+        .hero-eyebrow {
+          font-size: 0.65rem;
+          letter-spacing: 0.1em;
+          white-space: normal;
+          word-break: break-word;
+        }
+
+        .hero-ctas {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+          flex-wrap: nowrap;
+        }
+
+        .hero-link-down {
+          white-space: nowrap;
+        }
+
+        .back-top {
+          bottom: 80px;
+          right: 16px;
+        }
       }
     </style>
   </head>
@@ -2555,25 +2614,42 @@
       );
 
       // ─── HAMBURGUESA ───
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("nav-menu");
+      const hamburger = document.querySelector(".hamburger");
+      const navMenu = document.querySelector(".nav-menu");
 
-      hamburger.addEventListener("click", () => {
-        const open = navMenu.classList.toggle("active");
-        hamburger.classList.toggle("active", open);
-        document.body.classList.toggle("menu-open", open);
-        hamburger.setAttribute("aria-expanded", open.toString());
-      });
-
-      // Cerrar al hacer click en un link del menú
-      navMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navMenu.classList.remove("active");
-          hamburger.classList.remove("active");
-          document.body.classList.remove("menu-open");
-          hamburger.setAttribute("aria-expanded", "false");
+      if (hamburger && navMenu) {
+        hamburger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = navMenu.classList.toggle("active");
+          document.body.classList.toggle("menu-open", isOpen);
+          hamburger.setAttribute("aria-expanded", isOpen);
+          hamburger.innerHTML = isOpen
+            ? '<span style="font-size:1.8rem;line-height:1;color:#fff">×</span>'
+            : "<span></span><span></span><span></span>";
         });
-      });
+
+        navMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            document.body.classList.remove("menu-open");
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.innerHTML = "<span></span><span></span><span></span>";
+          });
+        });
+
+        document.addEventListener("click", (e) => {
+          if (
+            navMenu.classList.contains("active") &&
+            !navMenu.contains(e.target) &&
+            !hamburger.contains(e.target)
+          ) {
+            navMenu.classList.remove("active");
+            document.body.classList.remove("menu-open");
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.innerHTML = "<span></span><span></span><span></span>";
+          }
+        });
+      }
 
       // ─── SCROLL SPY: nav link activo según sección visible ───
       const sections = document.querySelectorAll("section[id]");
@@ -2809,6 +2885,26 @@
           }
         });
       });
+
+      // ─── FIX 3 — SCROLL-TO-TOP: ocultar cuando el footer es visible ───
+      const scrollTopBtn = document.querySelector(".back-top");
+      const siteFooter = document.querySelector("footer");
+
+      if (scrollTopBtn && siteFooter) {
+        const handleScrollBtnVisibility = () => {
+          const footerTop = siteFooter.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          if (footerTop < windowHeight) {
+            scrollTopBtn.style.opacity = "0";
+            scrollTopBtn.style.pointerEvents = "none";
+          } else {
+            scrollTopBtn.style.opacity = "";
+            scrollTopBtn.style.pointerEvents = "";
+          }
+        };
+        window.addEventListener("scroll", handleScrollBtnVisibility, { passive: true });
+        handleScrollBtnVisibility();
+      }
     </script>
   </body>
 </html>
