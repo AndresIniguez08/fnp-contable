@@ -14,8 +14,6 @@
     <meta name="author" content="Facundo Piatti - fnp.contable" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://fnpcontable.com" />
-
-    <!-- Open Graph -->
     <meta
       property="og:title"
       content="fnp.contable · Contador para pymes y emprendedores"
@@ -28,16 +26,12 @@
     <meta property="og:url" content="https://fnpcontable.com" />
     <meta property="og:image" content="https://fnpcontable.com/og-image.jpg" />
     <meta property="og:locale" content="es_AR" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="fnp.contable · Contador para pymes" />
     <meta
       name="twitter:description"
       content="Monotributo, impuestos y consultoría estratégica."
     />
-
-    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -46,10 +40,7 @@
         "description": "Asesoramiento contable, impositivo y estratégico para monotributistas, emprendedores y pymes.",
         "url": "https://fnpcontable.com",
         "telephone": "+549XXXXXXXXXX",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "AR"
-        },
+        "address": { "@type": "PostalAddress", "addressCountry": "AR" },
         "founder": {
           "@type": "Person",
           "name": "Facundo Piatti",
@@ -58,31 +49,22 @@
         "sameAs": ["https://www.instagram.com/fnp.contable"]
       }
     </script>
-
     <title>
       fnp.contable · Contador Público para Pymes y Emprendedores en Argentina
     </title>
-
-    <!-- Performance: preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://images.unsplash.com" />
-
-    <!-- Preload hero image -->
     <link
       rel="preload"
       as="image"
       href="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=90"
       fetchpriority="high"
     />
-
-    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-
-    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
     <style>
@@ -95,7 +77,6 @@
         --blanco: #ffffff;
         --gris-claro: #f4f6f9;
         --fondo-oscuro: #0f1e35;
-
         --sombra-verde: 0 8px 32px rgba(46, 204, 113, 0.15);
         --sombra-verde-hover: 0 16px 48px rgba(46, 204, 113, 0.28);
         --radio-card: 12px;
@@ -113,6 +94,7 @@
       }
       html {
         scroll-behavior: smooth;
+        overflow-x: hidden;
       }
       body {
         font-family: "Inter", sans-serif;
@@ -120,6 +102,7 @@
         color: var(--blanco);
         background: var(--azul-marino);
         overflow-x: hidden;
+        max-width: 100vw;
         line-height: 1.6;
       }
       img {
@@ -135,7 +118,7 @@
         list-style: none;
       }
 
-      /* ─── TIPOGRAFÍA UTILITARIA ─── */
+      /* ─── TIPOGRAFÍA ─── */
       .eyebrow {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -146,7 +129,6 @@
         margin-bottom: 0.75rem;
         display: block;
       }
-
       .section-title {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
@@ -154,7 +136,6 @@
         line-height: 1.1;
         margin-bottom: 1rem;
       }
-
       .section-subtitle {
         font-size: clamp(1rem, 2vw, 1.1rem);
         opacity: 0.7;
@@ -185,7 +166,6 @@
         min-height: 48px;
         letter-spacing: 0.03em;
       }
-
       .btn-green {
         background: var(--verde-principal);
         color: var(--azul-marino);
@@ -196,7 +176,6 @@
         transform: translateY(-2px);
         box-shadow: var(--sombra-verde-hover);
       }
-
       .btn-white {
         background: var(--blanco);
         color: var(--verde-oscuro);
@@ -210,7 +189,6 @@
         box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
       }
 
-      /* Pulso CTA hero */
       @keyframes pulse-glow {
         0%,
         100% {
@@ -224,7 +202,6 @@
         animation: pulse-glow 2.6s infinite;
       }
 
-      /* Float */
       @keyframes float {
         0%,
         100% {
@@ -257,7 +234,6 @@
         box-shadow: 0 2px 24px rgba(0, 0, 0, 0.32);
         padding: 0.8rem 0;
       }
-
       .navbar .container {
         display: flex;
         align-items: center;
@@ -271,18 +247,19 @@
         font-size: 1.3rem;
         color: var(--blanco);
         letter-spacing: -0.02em;
+        position: relative;
+        z-index: 10000;
       }
       .nav-logo .dot {
         color: var(--verde-principal);
       }
 
-      /* Links */
+      /* ─── DESKTOP MENU ─── */
       .nav-menu {
         display: flex;
         align-items: center;
         gap: 1.75rem;
       }
-
       .nav-link {
         font-family: "Inter", sans-serif;
         font-weight: 500;
@@ -315,7 +292,6 @@
         width: 100%;
       }
 
-      /* CTA nav */
       .nav-cta {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -336,7 +312,7 @@
         transform: translateY(-1px);
       }
 
-      /* Hamburguesa */
+      /* ─── HAMBURGUESA ─── */
       .hamburger {
         display: none;
         flex-direction: column;
@@ -349,6 +325,8 @@
         min-width: 48px;
         justify-content: center;
         align-items: center;
+        position: relative;
+        z-index: 10000;
       }
       .hamburger span {
         display: block;
@@ -357,67 +335,102 @@
         background: var(--blanco);
         border-radius: 2px;
         transition: var(--transicion);
-      }
-      .hamburger.active span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-      }
-      .hamburger.active span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+        pointer-events: none;
       }
 
-      /* ─── MOBILE MENU ─── */
+      /* ─── MOBILE: menú overlay ─── */
+      /* SISTEMA UNIFICADO — solo usa .open, elimina conflicto con .active */
       @media (max-width: 767px) {
         .hamburger {
           display: flex;
         }
 
+        /* Ocultar menú desktop en mobile */
         .nav-menu {
-          position: absolute;
-          top: 100%;
+          /* Reset completo del estado desktop */
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+
+          /* Overlay full screen */
+          position: fixed;
+          top: 0;
           left: 0;
-          width: 100%;
+          width: 100vw;
+          height: 100dvh; /* dvh para móviles con barra de browser */
           background: rgba(15, 30, 53, 0.98);
           backdrop-filter: blur(12px);
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0;
-          max-height: 0;
-          overflow: hidden;
+          -webkit-backdrop-filter: blur(12px);
+          z-index: 9998;
+          padding: 90px 24px 40px;
+
+          /* Estado cerrado */
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transform: translateY(-12px);
           transition:
-            max-height 0.4s ease,
-            padding 0.3s ease;
+            opacity 0.35s ease,
+            visibility 0.35s ease,
+            transform 0.35s ease;
         }
+
+        /* Estado abierto — SOLO .open, sin .active */
         .nav-menu.open {
-          max-height: 420px;
-          padding: 0.5rem 0 1.5rem;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+
+        /* Links dentro del menú mobile */
+        .nav-menu li {
+          width: 100%;
+          text-align: center;
         }
 
         .nav-link {
           width: 100%;
-          padding: 0.9rem 24px;
-          font-size: 1rem;
-          border-left: 3px solid transparent;
+          justify-content: center;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+          font-size: 1.2rem;
+          color: var(--blanco);
+          padding: 0.9rem 1rem;
+          border-left: none;
+          min-height: 52px;
+          letter-spacing: 0.02em;
+          border-radius: 8px;
           transition:
-            color 0.3s,
-            border-color 0.3s,
-            background 0.3s;
+            color 0.2s,
+            background 0.2s;
         }
         .nav-link::after {
           display: none;
         }
         .nav-link:hover,
         .nav-link.active {
-          border-left-color: var(--verde-principal);
-          background: rgba(46, 204, 113, 0.06);
+          color: var(--verde-principal);
+          background: rgba(46, 204, 113, 0.07);
         }
 
         .nav-cta {
-          margin: 0.5rem 24px 0;
+          margin-top: 0.75rem;
+          width: calc(100% - 0px);
+          justify-content: center;
+          font-size: 0.95rem;
+          padding: 0.9rem 1.5rem;
+          min-height: 52px;
         }
+      }
+
+      /* Bloquear scroll del body cuando el menú está abierto */
+      body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
       }
 
       /* ─── SECCIÓN BASE ─── */
@@ -429,7 +442,6 @@
           padding: 110px 0;
         }
       }
-
       .section-header {
         text-align: center;
         margin-bottom: 3.5rem;
@@ -457,7 +469,6 @@
         position: relative;
         overflow: hidden;
       }
-
       .hero-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -471,23 +482,24 @@
         }
       }
 
-      /* Eyebrow hero */
       .hero-eyebrow {
-        display: inline-flex;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.5rem;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
-        font-size: 0.68rem;
-        letter-spacing: 0.24em;
+        font-size: clamp(0.58rem, 1.8vw, 0.68rem);
+        letter-spacing: 0.18em;
         text-transform: uppercase;
         color: var(--verde-principal);
         margin-bottom: 1.5rem;
+        word-break: break-word;
       }
       .hero-eyebrow::before {
         content: "";
         display: block;
-        width: 28px;
+        width: 22px;
         height: 2px;
         background: var(--verde-principal);
         border-radius: 2px;
@@ -497,18 +509,20 @@
       .hero-title {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
-        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-size: clamp(2.2rem, 8vw, 5rem);
         line-height: 1.04;
         text-transform: uppercase;
         color: var(--blanco);
         margin-bottom: 1.5rem;
+        word-break: break-word;
+        hyphens: auto;
       }
       .hero-title .accent {
         color: var(--verde-principal);
       }
 
       .hero-desc {
-        font-size: clamp(1rem, 1.8vw, 1.1rem);
+        font-size: clamp(0.95rem, 1.8vw, 1.1rem);
         color: rgba(255, 255, 255, 0.78);
         line-height: 1.8;
         margin-bottom: 2.5rem;
@@ -532,6 +546,7 @@
         gap: 0.35rem;
         transition: color 0.3s;
         min-height: 48px;
+        white-space: nowrap;
       }
       .hero-link-down:hover {
         color: var(--verde-principal);
@@ -543,22 +558,23 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 280px;
+        min-height: 220px;
+        overflow: hidden; /* contener watermark en mobile */
       }
-
       .hero-watermark {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
-        font-size: clamp(5rem, 13vw, 11rem);
+        font-size: clamp(4rem, 18vw, 11rem);
         color: rgba(46, 204, 113, 0.08);
         text-transform: uppercase;
         letter-spacing: -0.02em;
         line-height: 1;
         user-select: none;
         pointer-events: none;
-        white-space: nowrap;
+        /* Sin white-space: nowrap — se adapta al contenedor */
+        word-break: break-all;
+        text-align: center;
       }
-
       .hero-card {
         position: absolute;
         bottom: -10px;
@@ -567,11 +583,10 @@
         background: rgba(36, 53, 96, 0.88);
         border: 1px solid rgba(46, 204, 113, 0.3);
         border-radius: var(--radio-card);
-        padding: 1.3rem 1.8rem;
+        padding: 1.1rem 1.4rem;
         box-shadow: var(--sombra-verde);
         animation: float 3s ease-in-out infinite;
-        min-width: 260px;
-        max-width: 300px;
+        width: min(280px, 85vw);
         text-align: center;
         backdrop-filter: blur(8px);
       }
@@ -581,13 +596,13 @@
           right: -15px;
           transform: none;
           bottom: 30px;
+          width: 280px;
         }
       }
-
       .hero-card p {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
-        font-size: clamp(0.88rem, 1.4vw, 1rem);
+        font-size: clamp(0.82rem, 1.4vw, 1rem);
         color: var(--blanco);
         line-height: 1.45;
       }
@@ -606,7 +621,6 @@
         color: var(--azul-marino);
         position: relative;
       }
-      /* Textura fondo sutilísima */
       #servicios::before {
         content: "";
         position: absolute;
@@ -622,7 +636,6 @@
         position: relative;
         z-index: 1;
       }
-
       #servicios .eyebrow {
         color: var(--verde-oscuro);
       }
@@ -647,17 +660,13 @@
         .servicios-grid {
           grid-template-columns: repeat(3, 1fr);
         }
-        /* Centra el 4to card cuando queda solo */
-        .servicio-card:nth-child(3n + 1):last-child {
-          grid-column: 2;
-        }
       }
 
       .servicio-card {
         background: var(--blanco);
         border-radius: var(--radio-card);
         border-left: 4px solid rgba(46, 204, 113, 0.3);
-        padding: 2rem 1.75rem 2rem 1.75rem;
+        padding: 2rem 1.75rem;
         position: relative;
         overflow: hidden;
         transition:
@@ -671,7 +680,6 @@
         box-shadow: var(--sombra-verde-hover);
         transform: translateY(-6px);
       }
-
       .servicio-num {
         position: absolute;
         top: -0.6rem;
@@ -685,7 +693,6 @@
         user-select: none;
         pointer-events: none;
       }
-
       .servicio-card h3 {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
@@ -706,7 +713,6 @@
       #sobre-mi {
         background: var(--azul-marino);
       }
-
       .sobre-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -720,7 +726,6 @@
           align-items: center;
         }
       }
-
       .sobre-subtitle-verde {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -729,7 +734,6 @@
         margin-bottom: 1.5rem;
         letter-spacing: 0.04em;
       }
-
       .sobre-parrafo {
         font-size: 1rem;
         color: rgba(255, 255, 255, 0.73);
@@ -737,7 +741,6 @@
         margin-bottom: 1.25rem;
       }
 
-      /* Stats */
       .stats-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -752,12 +755,10 @@
           gap: 1.25rem;
         }
       }
-
       .stat-item {
         border-left: 3px solid var(--verde-principal);
         padding-left: 1.1rem;
       }
-
       .stat-value {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
@@ -772,12 +773,9 @@
         line-height: 1.45;
       }
 
-      /* Imagen Sobre mí */
       .sobre-img-wrapper {
         position: relative;
       }
-
-      /* REEMPLAZAR con foto real de Facundo */
       .sobre-img {
         width: 100%;
         height: 440px;
@@ -786,7 +784,6 @@
         border: 3px solid var(--verde-principal);
         display: block;
       }
-
       .sobre-badge {
         position: absolute;
         bottom: -18px;
@@ -860,8 +857,6 @@
           border-left: 1px solid rgba(46, 204, 113, 0.13);
         }
       }
-
-      /* Separador entre pilares en mobile */
       .pilar-sep {
         width: 100%;
         height: 1px;
@@ -883,7 +878,6 @@
         position: relative;
         overflow: visible;
       }
-
       .pilar-numero {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
@@ -898,7 +892,6 @@
         pointer-events: none;
         user-select: none;
       }
-
       .pilar-label {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -911,7 +904,6 @@
         margin-bottom: 0.5rem;
         display: block;
       }
-
       .pilar-titulo {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
@@ -922,14 +914,12 @@
         position: relative;
         z-index: 1;
       }
-
       .pilar-desc {
         font-size: 0.95rem;
         color: rgba(255, 255, 255, 0.62);
         line-height: 1.78;
         margin-bottom: 1.5rem;
       }
-
       .pilar-highlight {
         background: var(--azul-medio);
         border-radius: var(--radio-card);
@@ -944,7 +934,6 @@
       #calculadora {
         background: var(--gris-claro);
         color: var(--azul-marino);
-        position: relative;
       }
       #calculadora .eyebrow {
         color: var(--verde-oscuro);
@@ -960,7 +949,6 @@
         max-width: 700px;
         margin: 0 auto;
       }
-
       .calc-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -979,13 +967,11 @@
         flex-direction: column;
         gap: 1.25rem;
       }
-
       .calc-field {
         display: flex;
         flex-direction: column;
         gap: 0.45rem;
       }
-
       .calc-label {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -1015,11 +1001,9 @@
         border-color: var(--verde-principal);
         box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.12);
       }
-      /* Quitar flechas del input number */
       .calc-input::-webkit-outer-spin-button,
       .calc-input::-webkit-inner-spin-button {
         -webkit-appearance: none;
-        appearance: none;
         margin: 0;
       }
       .calc-input[type="number"] {
@@ -1099,7 +1083,6 @@
         display: block;
       }
 
-      /* Resultado */
       .calc-resultado {
         background: var(--azul-marino);
         border-radius: 16px;
@@ -1127,7 +1110,6 @@
         margin-bottom: 0;
         padding-bottom: 0;
       }
-
       .calc-res-label {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -1138,7 +1120,6 @@
         margin-bottom: 0.25rem;
         display: block;
       }
-
       .calc-res-cat {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
@@ -1146,7 +1127,6 @@
         color: var(--verde-principal);
         line-height: 1;
       }
-
       .calc-res-monto {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -1154,7 +1134,6 @@
         color: var(--blanco);
         line-height: 1.1;
       }
-
       .calc-res-tope-val {
         font-size: 1rem;
         color: rgba(255, 255, 255, 0.85);
@@ -1176,7 +1155,6 @@
       .calc-badge-warning.show {
         display: block;
       }
-
       .calc-disclaimer {
         font-size: 0.7rem;
         color: rgba(255, 255, 255, 0.38);
@@ -1203,7 +1181,6 @@
         color: var(--verde-principal);
       }
 
-      /* Mensaje supera límite */
       .calc-supera {
         background: var(--azul-marino);
         border-radius: 16px;
@@ -1244,12 +1221,10 @@
         max-width: 520px;
         margin: 0 auto;
       }
-
       .faq-wrapper {
         max-width: 800px;
         margin: 0 auto;
       }
-
       .faq-item {
         border-bottom: 1px solid rgba(255, 255, 255, 0.09);
         border-left: 3px solid transparent;
@@ -1258,7 +1233,6 @@
       .faq-item.open {
         border-left-color: var(--verde-principal);
       }
-
       .faq-header {
         display: flex;
         align-items: center;
@@ -1268,9 +1242,7 @@
         cursor: pointer;
         min-height: 64px;
         user-select: none;
-        list-style: none;
       }
-
       .faq-question {
         font-family: "Inter", sans-serif;
         font-weight: 600;
@@ -1279,7 +1251,6 @@
         line-height: 1.4;
         flex: 1;
       }
-
       .faq-icon {
         font-size: 1.5rem;
         color: var(--verde-principal);
@@ -1296,7 +1267,6 @@
       .faq-item.open .faq-icon {
         transform: rotate(45deg);
       }
-
       .faq-body {
         max-height: 0;
         overflow: hidden;
@@ -1305,47 +1275,11 @@
       .faq-item.open .faq-body {
         max-height: 500px;
       }
-
       .faq-answer {
         font-size: 0.95rem;
         color: rgba(255, 255, 255, 0.65);
         line-height: 1.82;
         padding: 0 1rem 1.5rem 1rem;
-      }
-
-      /* ─── FOOTER DEV ─── */
-      .footer-dev-line {
-        border: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin-top: 1.5rem;
-        margin-bottom: 0;
-      }
-
-      .footer-dev {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding-top: 1.1rem;
-        font-size: 0.78rem;
-        color: rgba(255, 255, 255, 0.35);
-        letter-spacing: 0.02em;
-      }
-
-      .footer-dev-link {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-        font-size: 0.82rem;
-        color: rgba(255, 255, 255, 0.5);
-        text-decoration: none;
-        letter-spacing: 0.05em;
-        transition: color 0.3s ease;
-      }
-      .footer-dev-link:hover {
-        color: var(--verde-principal);
-      }
-      .footer-dev-accent {
-        color: var(--verde-principal);
       }
 
       /* ─── CONTACTO ─── */
@@ -1357,14 +1291,12 @@
         );
         text-align: center;
       }
-
       #contacto .section-title {
         color: var(--blanco);
         font-size: clamp(2rem, 5vw, 3.5rem);
         max-width: 680px;
         margin: 0 auto 1.25rem;
       }
-
       .contacto-desc {
         font-size: clamp(1rem, 2vw, 1.15rem);
         color: rgba(255, 255, 255, 0.85);
@@ -1372,7 +1304,6 @@
         margin: 0 auto 2.5rem;
         line-height: 1.72;
       }
-
       .contacto-ig {
         margin-top: 1.5rem;
         font-size: 0.9rem;
@@ -1395,7 +1326,6 @@
         color: rgba(255, 255, 255, 0.55);
         padding: 2.25rem 0;
       }
-
       .footer-inner {
         display: flex;
         flex-direction: column;
@@ -1411,7 +1341,6 @@
           align-items: center;
         }
       }
-
       .footer-logo {
         font-family: "Montserrat", sans-serif;
         font-weight: 900;
@@ -1421,7 +1350,6 @@
       .footer-logo .dot {
         color: var(--verde-principal);
       }
-
       .footer-nav {
         display: flex;
         gap: 1.5rem;
@@ -1435,7 +1363,6 @@
       .footer-nav a:hover {
         color: var(--verde-principal);
       }
-
       .footer-right {
         display: flex;
         flex-direction: column;
@@ -1447,12 +1374,10 @@
           align-items: flex-end;
         }
       }
-
       .footer-copy {
         font-size: 0.78rem;
         line-height: 1.5;
       }
-
       .footer-ig {
         display: inline-flex;
         align-items: center;
@@ -1468,6 +1393,38 @@
         height: 18px;
         fill: currentColor;
         flex-shrink: 0;
+      }
+
+      .footer-dev-line {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-top: 1.5rem;
+      }
+      .footer-dev {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding-top: 1.1rem;
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.35);
+        letter-spacing: 0.02em;
+        flex-wrap: wrap;
+      }
+      .footer-dev-link {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        transition: color 0.3s ease;
+      }
+      .footer-dev-link:hover {
+        color: var(--verde-principal);
+      }
+      .footer-dev-accent {
+        color: var(--verde-principal);
       }
 
       /* ─── BACK TO TOP ─── */
@@ -1501,136 +1458,30 @@
         opacity: 1;
         pointer-events: auto;
       }
+      .back-top.hidden-footer {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
       .back-top:hover {
         transform: translateY(-3px);
         background: var(--verde-oscuro);
         color: var(--blanco);
       }
-      /* ──────────────────────────────────────────
-   FIX 1 — Evitar scroll horizontal global
-   Agregar al :root o al body/html
-────────────────────────────────────────── */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
 
-      html,
-      body {
-        overflow-x: hidden;
-        width: 100%;
-        max-width: 100vw;
-      }
-
-      /* ──────────────────────────────────────────
-   FIX 2 — El menú mobile no debe empujar
-   el contenido. Tiene que ser overlay.
-────────────────────────────────────────── */
+      /* En mobile sube para no tapar el footer-dev */
       @media (max-width: 767px) {
-        .nav-menu {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(27, 42, 74, 0.98);
-          z-index: 9998;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 2rem;
-          padding: 80px 20px 40px;
-
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-8px);
-          transition:
-            opacity 0.3s ease,
-            transform 0.3s ease,
-            visibility 0.3s ease;
-          pointer-events: none;
-        }
-
-        .nav-menu.active {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-          pointer-events: all;
-        }
-
-        .nav-menu a {
-          font-family: "Montserrat", sans-serif;
-          font-weight: 700;
-          font-size: 1.5rem;
-          color: #ffffff;
-          text-decoration: none;
-          text-align: center;
-          padding: 12px 24px;
-          transition: color 0.2s ease;
-          position: relative;
-          z-index: 1;
-        }
-
-        .nav-menu a:hover {
-          color: #2ecc71;
-        }
-      }
-
-      /* ──────────────────────────────────────────
-   FIX 3 — Cuando el menú está abierto,
-   bloquear el scroll del body
-────────────────────────────────────────── */
-      body.menu-open {
-        overflow: hidden;
-      }
-
-      /* ─── FIX 1 — HERO MOBILE + FIX 3 — BACK-TO-TOP MOBILE ─── */
-      @media (max-width: 768px) {
-        .hero-text {
-          padding: 0 20px;
-          width: 100%;
-          max-width: 100%;
-          overflow: hidden;
-        }
-
-        .hero-title {
-          font-size: clamp(2.2rem, 10vw, 3.5rem);
-          word-break: break-word;
-          hyphens: auto;
-          white-space: normal;
-        }
-
-        .hero-eyebrow {
-          font-size: 0.65rem;
-          letter-spacing: 0.1em;
-          white-space: normal;
-          word-break: break-word;
-        }
-
-        .hero-ctas {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 12px;
-          flex-wrap: nowrap;
-        }
-
-        .hero-link-down {
-          white-space: nowrap;
-        }
-
         .back-top {
-          bottom: 80px;
-          right: 16px;
+          bottom: 1.25rem;
+          right: 1rem;
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
         }
       }
     </style>
   </head>
   <body>
-    <!-- ════════════════════════════════════════
-       NAVBAR
-  ════════════════════════════════════════ -->
+    <!-- NAVBAR -->
     <nav
       class="navbar"
       id="navbar"
@@ -1641,20 +1492,15 @@
         <a href="#inicio" class="nav-logo" aria-label="fnp.contable — Inicio">
           fnp<span class="dot">.</span>contable
         </a>
-
-        <!-- Hamburguesa mobile -->
         <button
           class="hamburger"
           id="hamburger"
-          aria-label="Abrir menú de navegación"
+          aria-label="Abrir menú"
           aria-expanded="false"
           aria-controls="nav-menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
-
         <ul class="nav-menu" id="nav-menu" role="list">
           <li>
             <a href="#inicio" class="nav-link active" data-section="inicio"
@@ -1681,44 +1527,34 @@
               >Calculadora</a
             >
           </li>
-          <li>
-            <a href="#faq" class="nav-link" data-section="faq">FAQ</a>
-          </li>
+          <li><a href="#faq" class="nav-link" data-section="faq">FAQ</a></li>
           <li>
             <a href="#contacto" class="nav-link" data-section="contacto"
               >Contacto</a
             >
           </li>
-          <li>
-            <a href="#contacto" class="nav-cta">Consultá gratis</a>
-          </li>
+          <li><a href="#contacto" class="nav-cta">Consultá gratis</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- ════════════════════════════════════════
-       HERO
-  ════════════════════════════════════════ -->
+    <!-- HERO -->
     <section id="inicio" aria-label="Sección principal">
       <div class="container">
         <div class="hero-grid">
-          <!-- Texto -->
           <div class="hero-text">
             <p class="hero-eyebrow" data-aos="fade-up" data-aos-duration="600">
               CONTADOR PÚBLICO · PYMES · EMPRENDEDORES
             </p>
-
             <h1
               class="hero-title"
               data-aos="fade-up"
               data-aos-duration="700"
               data-aos-delay="100"
             >
-              Ordená tus<br />
-              <span class="accent">números.</span><br />
-              Hacé crecer tu negocio.
+              Ordená tus<br /><span class="accent">números.</span><br />Hacé
+              crecer tu negocio.
             </h1>
-
             <p
               class="hero-desc"
               data-aos="fade-up"
@@ -1729,38 +1565,26 @@
               emprendedores y pymes que quieren tomar el control de sus
               finanzas.
             </p>
-
             <div
               class="hero-ctas"
               data-aos="fade-up"
               data-aos-duration="700"
               data-aos-delay="300"
             >
-              <!--
-              PERSONALIZAR: Reemplazar XXXXXXXXXX por el número de WhatsApp.
-              Formato: 549 + código de área sin 0 + número (sin guiones ni espacios)
-              Ejemplo: 5491112345678
-            -->
+              <!-- PERSONALIZAR: reemplazar XXXXXXXXXX por el número de WhatsApp -->
               <a
                 href="https://wa.me/549XXXXXXXXXX?text=Hola%20Facundo%2C%20quiero%20hacer%20una%20consulta."
                 class="btn btn-green btn-pulse"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Contactar a Facundo por WhatsApp"
               >
                 Consultá por WhatsApp
               </a>
-              <a
-                href="#servicios"
-                class="hero-link-down"
-                aria-label="Ver servicios"
+              <a href="#servicios" class="hero-link-down"
+                >Conocé los servicios &darr;</a
               >
-                Conocé los servicios &darr;
-              </a>
             </div>
           </div>
-
-          <!-- Visual derecha -->
           <div
             class="hero-visual"
             data-aos="fade-left"
@@ -1778,9 +1602,7 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       SERVICIOS
-  ════════════════════════════════════════ -->
+    <!-- SERVICIOS -->
     <section id="servicios" aria-label="Servicios de fnp.contable">
       <div class="container">
         <header class="section-header">
@@ -1805,7 +1627,6 @@
             sorpresas.
           </p>
         </header>
-
         <div class="servicios-grid">
           <article
             class="servicio-card"
@@ -1820,7 +1641,6 @@
               Sin sorpresas.
             </p>
           </article>
-
           <article
             class="servicio-card"
             data-aos="fade-up"
@@ -1834,7 +1654,6 @@
               para tomar mejores decisiones.
             </p>
           </article>
-
           <article
             class="servicio-card"
             data-aos="fade-up"
@@ -1848,7 +1667,6 @@
               organismos fiscales.
             </p>
           </article>
-
           <article
             class="servicio-card"
             data-aos="fade-up"
@@ -1866,13 +1684,10 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       SOBRE MÍ
-  ════════════════════════════════════════ -->
+    <!-- SOBRE MÍ -->
     <section id="sobre-mi" aria-label="Sobre Facundo Piatti">
       <div class="container">
         <div class="sobre-grid">
-          <!-- Texto + stats -->
           <div class="sobre-text">
             <span class="eyebrow" data-aos="fade-up" data-aos-duration="600"
               >SOBRE MÍ</span
@@ -1913,8 +1728,6 @@
               sus finanzas, cumplir con sus obligaciones y construir algo que
               dure.
             </p>
-
-            <!-- Stats animadas con IntersectionObserver + JS -->
             <div class="stats-grid" id="stats-trigger">
               <div
                 class="stat-item"
@@ -1955,8 +1768,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Imagen -->
           <div
             class="sobre-visual"
             data-aos="fade-left"
@@ -1986,9 +1797,7 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       LOS 3 PILARES
-  ════════════════════════════════════════ -->
+    <!-- PILARES -->
     <section id="pilares" aria-label="Los 3 pilares de fnp.contable">
       <div class="container">
         <header class="section-header">
@@ -2012,9 +1821,7 @@
             No alcanza con saber vender. Necesitás esto también.
           </p>
         </header>
-
         <div class="pilares-wrapper">
-          <!-- Pilar 01 -->
           <div
             class="pilar"
             data-aos="fade-up"
@@ -2034,10 +1841,7 @@
               </div>
             </div>
           </div>
-
           <div class="pilar-sep" aria-hidden="true"></div>
-
-          <!-- Pilar 02 -->
           <div
             class="pilar"
             data-aos="fade-up"
@@ -2057,10 +1861,7 @@
               </div>
             </div>
           </div>
-
           <div class="pilar-sep" aria-hidden="true"></div>
-
-          <!-- Pilar 03 -->
           <div
             class="pilar"
             data-aos="fade-up"
@@ -2083,13 +1884,8 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       CALCULADORA DE MONOTRIBUTO
-  ════════════════════════════════════════ -->
-    <section
-      id="calculadora"
-      aria-label="Calculadora de categoría de Monotributo"
-    >
+    <!-- CALCULADORA -->
+    <section id="calculadora" aria-label="Calculadora de Monotributo">
       <div class="container">
         <header class="section-header">
           <span class="eyebrow" data-aos="fade-up" data-aos-duration="600"
@@ -2113,7 +1909,6 @@
             estás y cuánto deberías pagar. Valores vigentes mayo 2026.
           </p>
         </header>
-
         <div class="calc-wrapper">
           <div
             class="calc-grid"
@@ -2121,12 +1916,11 @@
             data-aos-duration="700"
             data-aos-delay="150"
           >
-            <!-- Formulario -->
             <div class="calc-form" id="calc-form">
               <div class="calc-field">
-                <label class="calc-label" for="calc-facturacion">
-                  ¿Cuánto facturás por año? (en pesos)
-                </label>
+                <label class="calc-label" for="calc-facturacion"
+                  >¿Cuánto facturás por año? (en pesos)</label
+                >
                 <input
                   class="calc-input"
                   type="number"
@@ -2142,7 +1936,6 @@
                   role="alert"
                 ></span>
               </div>
-
               <div class="calc-field">
                 <label class="calc-label" for="calc-tipo"
                   >Tipo de actividad</label
@@ -2156,75 +1949,49 @@
                   </select>
                 </div>
               </div>
-
               <button
                 class="calc-btn"
                 id="calc-btn"
                 type="button"
-                aria-label="Calcular categoría de Monotributo"
+                aria-label="Calcular categoría"
               >
                 <span class="calc-spinner" aria-hidden="true"></span>
                 <span class="calc-btn-text">Calcular mi categoría</span>
               </button>
             </div>
-
-            <!-- Panel de resultado -->
             <div aria-live="polite" aria-atomic="true">
-              <!-- Resultado normal -->
-              <div
-                class="calc-resultado"
-                id="calc-resultado"
-                role="region"
-                aria-label="Resultado del cálculo"
-              >
+              <div class="calc-resultado" id="calc-resultado" role="region">
                 <div class="calc-res-row">
                   <span class="calc-res-label">Tu categoría</span>
                   <div class="calc-res-cat" id="calc-res-letra">—</div>
                 </div>
-
-                <div
-                  class="calc-badge-warning"
-                  id="calc-badge"
-                  aria-live="polite"
-                >
+                <div class="calc-badge-warning" id="calc-badge">
                   ⚠ Estás cerca del límite. Revisá tu categoría pronto.
                 </div>
-
                 <div class="calc-res-row">
                   <span class="calc-res-label">Cuota mensual estimada</span>
                   <div class="calc-res-monto" id="calc-res-cuota">—</div>
                 </div>
-
                 <div class="calc-res-row">
                   <span class="calc-res-label"
                     >Límite de facturación anual</span
                   >
                   <div class="calc-res-tope-val" id="calc-res-tope">—</div>
                 </div>
-
                 <div class="calc-res-row">
-                  <a href="#contacto" class="calc-res-cta">
-                    Hablá con Facundo sobre tu situación →
-                  </a>
+                  <a href="#contacto" class="calc-res-cta"
+                    >Hablá con Facundo sobre tu situación →</a
+                  >
                 </div>
-
                 <div class="calc-res-row">
                   <p class="calc-disclaimer">
                     * Valores vigentes febrero–julio 2026 según ARCA. La cuota
                     final puede variar según superficie, energía y alquileres.
-                    Esta calculadora es orientativa. Para un análisis preciso,
-                    consultá con un contador.
+                    Esta calculadora es orientativa.
                   </p>
                 </div>
               </div>
-
-              <!-- Supera el tope de K -->
-              <div
-                class="calc-supera"
-                id="calc-supera"
-                role="region"
-                aria-label="Aviso: facturación supera límite del Monotributo"
-              >
+              <div class="calc-supera" id="calc-supera" role="region">
                 <p class="calc-supera-titulo">
                   Tu facturación supera el límite del Monotributo.
                 </p>
@@ -2233,22 +2000,17 @@
                   implica nuevas obligaciones pero también puede abrir
                   oportunidades para tu negocio.
                 </p>
-                <a href="#contacto" class="calc-res-cta">
-                  Consultá con Facundo →
-                </a>
+                <a href="#contacto" class="calc-res-cta"
+                  >Consultá con Facundo →</a
+                >
               </div>
             </div>
-            <!-- /aria-live -->
           </div>
-          <!-- /calc-grid -->
         </div>
-        <!-- /calc-wrapper -->
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       FAQ
-  ════════════════════════════════════════ -->
+    <!-- FAQ -->
     <section id="faq" aria-label="Preguntas frecuentes">
       <div class="container">
         <header class="section-header">
@@ -2272,7 +2034,6 @@
             Si tu duda no está acá, escribime directamente.
           </p>
         </header>
-
         <div class="faq-wrapper">
           <div
             class="faq-item"
@@ -2301,7 +2062,6 @@
               </p>
             </div>
           </div>
-
           <div
             class="faq-item"
             data-aos="fade-up"
@@ -2329,7 +2089,6 @@
               </p>
             </div>
           </div>
-
           <div
             class="faq-item"
             data-aos="fade-up"
@@ -2353,12 +2112,10 @@
                 tenés y si trabajás con empresas que necesitan factura A. El
                 monotributo es más simple y económico hasta cierto nivel. Si
                 superás el tope o empezás a vender a empresas grandes, el RI
-                puede ser más conveniente. Esto es algo que vale la pena
-                analizar puntualmente con un contador.
+                puede ser más conveniente.
               </p>
             </div>
           </div>
-
           <div
             class="faq-item"
             data-aos="fade-up"
@@ -2381,12 +2138,10 @@
                 Sí. ARCA cruza información con bancos, procesadoras de pago
                 (Mercado Pago, Naranja X, etc.) y otros organismos. Los
                 depósitos y acreditaciones que no coinciden con tu facturación
-                declarada pueden generar controles. Por eso es importante que lo
-                que facturás refleje lo que realmente ingresa.
+                declarada pueden generar controles.
               </p>
             </div>
           </div>
-
           <div
             class="faq-item"
             data-aos="fade-up"
@@ -2414,7 +2169,6 @@
               </p>
             </div>
           </div>
-
           <div
             class="faq-item"
             data-aos="fade-up"
@@ -2444,19 +2198,15 @@
             </div>
           </div>
         </div>
-        <!-- /faq-wrapper -->
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       CONTACTO / CTA FINAL
-  ════════════════════════════════════════ -->
+    <!-- CONTACTO -->
     <section id="contacto" aria-label="Contacto">
       <div class="container">
         <h2 class="section-title" data-aos="fade-up" data-aos-duration="700">
           ¿Listo para ordenar<br />tu negocio?
         </h2>
-
         <p
           class="contacto-desc"
           data-aos="fade-up"
@@ -2465,23 +2215,17 @@
         >
           Una consulta sin compromiso puede cambiar cómo ves tus números.
         </p>
-
         <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
-          <!--
-          PERSONALIZAR: Reemplazar XXXXXXXXXX por el número de WhatsApp.
-          Ejemplo: https://wa.me/5491112345678?text=...
-        -->
+          <!-- PERSONALIZAR: reemplazar XXXXXXXXXX -->
           <a
             href="https://wa.me/549XXXXXXXXXX?text=Hola%20Facundo%2C%20quiero%20hacer%20una%20consulta."
             class="btn btn-white"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Contactar a Facundo Piatti por WhatsApp"
           >
             Escribime por WhatsApp
           </a>
         </div>
-
         <p
           class="contacto-ig"
           data-aos="fade-up"
@@ -2489,48 +2233,36 @@
           data-aos-delay="300"
         >
           También encontrás contenido útil en Instagram ·
-          <!--
-          PERSONALIZAR: Verificar que el link de Instagram sea correcto
-        -->
           <a
             href="https://www.instagram.com/fnp.contable"
             target="_blank"
             rel="noopener noreferrer"
+            >@fnp.contable</a
           >
-            @fnp.contable
-          </a>
         </p>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════ -->
+    <!-- FOOTER -->
     <footer role="contentinfo">
       <div class="container">
         <div class="footer-inner">
           <a
             href="#inicio"
             class="footer-logo"
-            aria-label="fnp.contable — volver al inicio"
+            aria-label="fnp.contable — inicio"
+            >fnp<span class="dot">.</span>contable</a
           >
-            fnp<span class="dot">.</span>contable
-          </a>
-
           <nav class="footer-nav" aria-label="Links secundarios">
             <a href="#servicios">Servicios</a>
             <a href="#sobre-mi">Sobre mí</a>
             <a href="#contacto">Contacto</a>
           </nav>
-
           <div class="footer-right">
             <p class="footer-copy">
               &copy; 2025 fnp.contable &nbsp;·&nbsp; Facundo Piatti
               &nbsp;·&nbsp; Contador Público
             </p>
-            <!--
-            PERSONALIZAR: Verificar link de Instagram
-          -->
             <a
               href="https://www.instagram.com/fnp.contable"
               class="footer-ig"
@@ -2538,30 +2270,13 @@
               rel="noopener noreferrer"
               aria-label="Instagram de fnp.contable"
             >
-              <!-- Ícono Instagram — SVG inline, sin FontAwesome -->
               <svg
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
               >
                 <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919
-                4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069
-                4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07
-                -3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92
-                -.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149
-                -3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0
-                -2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98
-                6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072
-                4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072
-                3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059
-                -1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196
-                -4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0
-                5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163
-                6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162
-                c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791
-                4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441
-                1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
                 />
               </svg>
               @fnp.contable
@@ -2576,7 +2291,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="footer-dev-link"
-            aria-label="Pulso Web Studio - Desarrollo web profesional"
+            aria-label="Pulso Web Studio"
           >
             pulso<span class="footer-dev-accent">web</span>studio
           </a>
@@ -2584,74 +2299,103 @@
       </div>
     </footer>
 
-    <!-- Botón volver arriba -->
     <button class="back-top" id="backTop" aria-label="Volver al inicio">
       &#8593;
     </button>
 
-    <!-- AOS Library -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-    <!-- ════════════════════════════════════════
-       JAVASCRIPT
-  ════════════════════════════════════════ -->
     <script>
       // ─── AOS ───
       AOS.init({ once: true, offset: 80 });
 
-      // ─── NAVBAR: fondo sólido al hacer scroll ───
+      // ─── NAVBAR SCROLL ───
       const navbar = document.getElementById("navbar");
       const backTop = document.getElementById("backTop");
+
+      // ─── HAMBURGUESA — SISTEMA LIMPIO, SOLO .open ───
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("nav-menu");
+
+      function openMenu() {
+        navMenu.classList.add("open");
+        document.body.classList.add("menu-open");
+        hamburger.setAttribute("aria-expanded", "true");
+        hamburger.setAttribute("aria-label", "Cerrar menú");
+        // Animación barras → X via CSS transforms
+        hamburger.classList.add("is-open");
+      }
+
+      function closeMenu() {
+        navMenu.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        hamburger.setAttribute("aria-expanded", "false");
+        hamburger.setAttribute("aria-label", "Abrir menú");
+        hamburger.classList.remove("is-open");
+      }
+
+      hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navMenu.classList.contains("open") ? closeMenu() : openMenu();
+      });
+
+      // Cerrar al clickear cualquier link del menú
+      navMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      // Cerrar al clickear fuera
+      document.addEventListener("click", (e) => {
+        if (
+          navMenu.classList.contains("open") &&
+          !navMenu.contains(e.target) &&
+          !hamburger.contains(e.target)
+        ) {
+          closeMenu();
+        }
+      });
+
+      // Cerrar con Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && navMenu.classList.contains("open"))
+          closeMenu();
+      });
+
+      // ─── SCROLL: navbar + back-to-top ───
+      const siteFooter = document.querySelector("footer");
 
       window.addEventListener(
         "scroll",
         () => {
           const y = window.scrollY;
+
+          // Navbar fondo sólido
           navbar.classList.toggle("scrolled", y > 60);
-          backTop.classList.toggle("show", y > 400);
+
+          // Back-to-top: mostrar después de 400px
+          if (y > 400) {
+            backTop.classList.add("show");
+          } else {
+            backTop.classList.remove("show");
+          }
+
+          // Ocultar back-to-top cuando el footer es visible
+          if (siteFooter) {
+            const footerTop = siteFooter.getBoundingClientRect().top;
+            backTop.classList.toggle(
+              "hidden-footer",
+              footerTop < window.innerHeight,
+            );
+          }
         },
         { passive: true },
       );
 
-      // ─── HAMBURGUESA ───
-      const hamburger = document.querySelector(".hamburger");
-      const navMenu = document.querySelector(".nav-menu");
+      backTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
 
-      if (hamburger && navMenu) {
-        hamburger.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const isOpen = navMenu.classList.toggle("active");
-          document.body.classList.toggle("menu-open", isOpen);
-          hamburger.setAttribute("aria-expanded", isOpen);
-          hamburger.innerHTML = isOpen
-            ? '<span style="font-size:1.8rem;line-height:1;color:#fff">×</span>'
-            : "<span></span><span></span><span></span>";
-        });
-
-        navMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            document.body.classList.remove("menu-open");
-            hamburger.setAttribute("aria-expanded", "false");
-            hamburger.innerHTML = "<span></span><span></span><span></span>";
-          });
-        });
-
-        document.addEventListener("click", (e) => {
-          if (
-            navMenu.classList.contains("active") &&
-            !navMenu.contains(e.target) &&
-            !hamburger.contains(e.target)
-          ) {
-            navMenu.classList.remove("active");
-            document.body.classList.remove("menu-open");
-            hamburger.setAttribute("aria-expanded", "false");
-            hamburger.innerHTML = "<span></span><span></span><span></span>";
-          }
-        });
-      }
-
-      // ─── SCROLL SPY: nav link activo según sección visible ───
+      // ─── SCROLL SPY ───
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-link[data-section]");
 
@@ -2681,12 +2425,9 @@
             countersRun = true;
             counters.forEach((el) => {
               const target = parseInt(el.dataset.target, 10);
-              const duration = 1400;
-              const fps = 60;
-              const frames = duration / (1000 / fps);
+              const frames = 84;
               const step = target / frames;
               let current = 0;
-
               const tick = () => {
                 current += step;
                 if (current < target) {
@@ -2706,13 +2447,7 @@
       const statsTrigger = document.getElementById("stats-trigger");
       if (statsTrigger) counterObs.observe(statsTrigger);
 
-      // ─── BACK TO TOP ───
-      backTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      // ─── CALCULADORA DE MONOTRIBUTO ───
-      // ACTUALIZAR valores en julio 2026 con los nuevos montos de ARCA
+      // ─── CALCULADORA ─── ACTUALIZAR en julio 2026
       const categoriasMono = [
         {
           letra: "A",
@@ -2806,7 +2541,6 @@
 
       function calcularMonotributo() {
         resetCalcUI();
-
         const raw = calcInput.value.trim();
         const valor = parseFloat(raw);
         const tipo = calcTipo.value;
@@ -2823,21 +2557,15 @@
         }
 
         calcBtn.classList.add("loading");
-
         setTimeout(() => {
           calcBtn.classList.remove("loading");
-
           const cat = categoriasMono.find((c) => valor <= c.tope);
-
           if (!cat) {
             calcSupera.style.display = "block";
             requestAnimationFrame(() => calcSupera.classList.add("visible"));
             return;
           }
-
           const cuota = tipo === "servicios" ? cat.servicios : cat.productos;
-          const cercaLimite = valor >= cat.tope * 0.8;
-
           document.getElementById("calc-res-letra").textContent = cat.letra;
           document.getElementById("calc-res-cuota").textContent =
             "$" + formatARS(cuota);
@@ -2845,8 +2573,7 @@
             "$" + formatARS(cat.tope);
           document
             .getElementById("calc-badge")
-            .classList.toggle("show", cercaLimite);
-
+            .classList.toggle("show", valor >= cat.tope * 0.8);
           requestAnimationFrame(() => calcRes.classList.add("visible"));
         }, 400);
       }
@@ -2861,7 +2588,6 @@
       // ─── FAQ ACORDEÓN ───
       document.querySelectorAll(".faq-item").forEach((item) => {
         const header = item.querySelector(".faq-header");
-
         const toggle = () => {
           const isOpen = item.classList.contains("open");
           document.querySelectorAll(".faq-item.open").forEach((el) => {
@@ -2876,7 +2602,6 @@
             header.setAttribute("aria-expanded", "true");
           }
         };
-
         header.addEventListener("click", toggle);
         header.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
@@ -2885,26 +2610,6 @@
           }
         });
       });
-
-      // ─── FIX 3 — SCROLL-TO-TOP: ocultar cuando el footer es visible ───
-      const scrollTopBtn = document.querySelector(".back-top");
-      const siteFooter = document.querySelector("footer");
-
-      if (scrollTopBtn && siteFooter) {
-        const handleScrollBtnVisibility = () => {
-          const footerTop = siteFooter.getBoundingClientRect().top;
-          const windowHeight = window.innerHeight;
-          if (footerTop < windowHeight) {
-            scrollTopBtn.style.opacity = "0";
-            scrollTopBtn.style.pointerEvents = "none";
-          } else {
-            scrollTopBtn.style.opacity = "";
-            scrollTopBtn.style.pointerEvents = "";
-          }
-        };
-        window.addEventListener("scroll", handleScrollBtnVisibility, { passive: true });
-        handleScrollBtnVisibility();
-      }
     </script>
   </body>
 </html>
