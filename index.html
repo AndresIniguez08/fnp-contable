@@ -1494,6 +1494,376 @@
           display: none;
         }
       }
+
+      /* ─── CALCULADORA IVA ─── */
+      #calculadora-iva {
+        background: var(--azul-marino);
+      }
+
+      .iva-wrapper {
+        max-width: 780px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      /* Bloque ventas / compras */
+      .iva-bloque {
+        background: var(--azul-medio);
+        border-radius: 16px;
+        padding: 2rem;
+        border: 1px solid rgba(46, 204, 113, 0.12);
+      }
+
+      .iva-bloque-header {
+        position: relative;
+        margin-bottom: 1.5rem;
+        padding-right: 4rem;
+      }
+
+      .iva-bloque-num {
+        position: absolute;
+        top: -0.5rem;
+        right: 0;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 4.5rem;
+        color: var(--verde-principal);
+        opacity: 0.08;
+        line-height: 1;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      .iva-bloque-titulo {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 1.2rem;
+        color: var(--blanco);
+        margin-bottom: 0.35rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .iva-bloque-desc {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.5;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Filas de items */
+      .iva-filas {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        margin-bottom: 1rem;
+      }
+
+      .iva-fila {
+        display: grid;
+        grid-template-columns: 1fr auto auto auto;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      @media (max-width: 600px) {
+        .iva-fila {
+          grid-template-columns: 1fr auto auto;
+          grid-template-rows: auto auto;
+        }
+        .iva-fila-monto {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        .iva-fila-alicuota {
+          grid-column: 2;
+          grid-row: 2;
+        }
+        .iva-fila-eliminar {
+          grid-column: 3;
+          grid-row: 1 / 3;
+          align-self: center;
+        }
+        .iva-fila-desc {
+          grid-column: 1 / 3;
+          grid-row: 1;
+        }
+      }
+
+      .iva-fila-desc,
+      .iva-fila-monto {
+        padding: 0.65rem 0.85rem;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        font-family: "Inter", sans-serif;
+        font-size: 0.88rem;
+        color: var(--blanco);
+        background: rgba(15, 30, 53, 0.5);
+        transition: border-color 0.25s;
+        min-height: 44px;
+        width: 100%;
+      }
+      .iva-fila-desc::placeholder,
+      .iva-fila-monto::placeholder {
+        color: rgba(255, 255, 255, 0.25);
+      }
+      .iva-fila-desc:focus,
+      .iva-fila-monto:focus {
+        outline: none;
+        border-color: var(--verde-principal);
+        background: rgba(15, 30, 53, 0.8);
+      }
+      .iva-fila-monto::-webkit-outer-spin-button,
+      .iva-fila-monto::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+      .iva-fila-monto[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+
+      .iva-fila-alicuota {
+        padding: 0.65rem 0.5rem;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: var(--verde-principal);
+        background: rgba(15, 30, 53, 0.5);
+        cursor: pointer;
+        min-height: 44px;
+        min-width: 90px;
+        transition: border-color 0.25s;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      .iva-fila-alicuota:focus {
+        outline: none;
+        border-color: var(--verde-principal);
+      }
+
+      .iva-fila-eliminar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(231, 76, 60, 0.12);
+        color: rgba(231, 76, 60, 0.7);
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s;
+        flex-shrink: 0;
+        line-height: 1;
+      }
+      .iva-fila-eliminar:hover {
+        background: rgba(231, 76, 60, 0.25);
+        color: #e74c3c;
+      }
+
+      /* Botón agregar fila */
+      .iva-add-btn {
+        background: transparent;
+        border: 2px dashed rgba(46, 204, 113, 0.3);
+        border-radius: 8px;
+        color: var(--verde-principal);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 0.82rem;
+        padding: 0.65rem 1rem;
+        width: 100%;
+        cursor: pointer;
+        transition: border-color 0.25s, background 0.25s;
+        min-height: 44px;
+        letter-spacing: 0.03em;
+      }
+      .iva-add-btn:hover {
+        border-color: var(--verde-principal);
+        background: rgba(46, 204, 113, 0.06);
+      }
+
+      /* Subtotal de cada bloque */
+      .iva-subtotal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .iva-subtotal-label {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .iva-subtotal-val {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 1.3rem;
+        color: var(--verde-principal);
+      }
+
+      /* Separador con signo menos */
+      .iva-separador {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 1rem;
+      }
+      .iva-sep-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(46,204,113,0.3), transparent);
+      }
+      .iva-sep-signo {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.2);
+        line-height: 1;
+        flex-shrink: 0;
+      }
+
+      /* Panel resultado */
+      .iva-resultado {
+        background: var(--fondo-oscuro);
+        border-radius: 16px;
+        border: 1px solid rgba(46, 204, 113, 0.2);
+        overflow: hidden;
+      }
+      .iva-resultado-inner {
+        padding: 2rem;
+      }
+
+      .iva-res-fila {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+      .iva-res-label {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .iva-res-val {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .iva-res-divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+        margin: 1rem 0;
+      }
+
+      .iva-res-saldo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem;
+      }
+      .iva-res-saldo-label {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .iva-res-saldo-monto {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 2.2rem;
+        color: var(--blanco);
+        line-height: 1;
+        transition: color 0.3s;
+      }
+      .iva-res-saldo-monto.a-pagar { color: #e74c3c; }
+      .iva-res-saldo-monto.a-favor { color: var(--verde-principal); }
+      .iva-res-saldo-monto.neutro  { color: rgba(255,255,255,0.6); }
+
+      .iva-res-badge {
+        border-radius: var(--radio-card);
+        padding: 0.7rem 1rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .iva-res-badge.show { display: block; }
+      .iva-res-badge.badge-pagar {
+        background: rgba(231, 76, 60, 0.1);
+        border: 1px solid rgba(231, 76, 60, 0.3);
+        color: #e74c3c;
+      }
+      .iva-res-badge.badge-favor {
+        background: rgba(46, 204, 113, 0.1);
+        border: 1px solid rgba(46, 204, 113, 0.3);
+        color: var(--verde-principal);
+      }
+      .iva-res-badge.badge-neutro {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: rgba(255,255,255,0.5);
+      }
+
+      .iva-res-disclaimer {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.3);
+        line-height: 1.6;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Bloques de crédito (retenciones y percepciones) */
+      .iva-bloque-credito {
+        border-color: rgba(46, 204, 113, 0.2);
+        background: rgba(36, 53, 96, 0.6);
+      }
+
+      /* Subtotal en verde para créditos */
+      .iva-subtotal-credito {
+        color: var(--verde-principal);
+      }
+
+      /* Valores de crédito en el desglose del resultado */
+      .iva-val-credito {
+        color: var(--verde-principal);
+      }
+
+      /* Filas de retenciones y percepciones: solo descripción + monto directo */
+      .iva-fila-ret {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      @media (max-width: 600px) {
+        .iva-fila-ret {
+          grid-template-columns: 1fr auto;
+          grid-template-rows: auto auto;
+        }
+        .iva-fila-ret .iva-fila-monto {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        .iva-fila-ret .iva-fila-eliminar {
+          grid-column: 2;
+          grid-row: 1 / 3;
+          align-self: center;
+        }
+        .iva-fila-ret .iva-fila-desc {
+          grid-column: 1;
+          grid-row: 1;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1542,6 +1912,11 @@
             <a href="#calculadora" class="nav-link" data-section="calculadora"
               >Calculadora</a
             >
+          </li>
+          <li>
+            <a href="#calculadora-iva" class="nav-link" data-section="calculadora-iva">
+              IVA RI
+            </a>
           </li>
           <li><a href="#faq" class="nav-link" data-section="faq">FAQ</a></li>
           <li>
@@ -2023,6 +2398,193 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- CALCULADORA IVA RI -->
+    <section id="calculadora-iva" aria-label="Calculadora de IVA para Responsables Inscriptos">
+      <div class="container">
+
+        <header class="section-header">
+          <span class="eyebrow" data-aos="fade-up" data-aos-duration="600">
+            RESPONSABLES INSCRIPTOS
+          </span>
+          <h2 class="section-title" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+            Calculadora de IVA
+          </h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+            Calculá tu IVA Ventas, tu IVA Compras y el saldo resultante
+            del período. Solo para Responsables Inscriptos.
+          </p>
+        </header>
+
+        <div class="iva-wrapper">
+
+          <!-- BLOQUE IVA VENTAS -->
+          <div class="iva-bloque" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+            <div class="iva-bloque-header">
+              <span class="iva-bloque-num" aria-hidden="true">01</span>
+              <h3 class="iva-bloque-titulo">IVA Ventas</h3>
+              <p class="iva-bloque-desc">
+                El IVA que cobraste a tus clientes en el período.
+              </p>
+            </div>
+
+            <div class="iva-filas" id="iva-ventas-filas">
+              <!-- Las filas se generan dinámicamente con JS -->
+            </div>
+
+            <button class="iva-add-btn" id="iva-ventas-add" type="button">
+              + Agregar venta
+            </button>
+
+            <div class="iva-subtotal">
+              <span class="iva-subtotal-label">Total IVA Ventas</span>
+              <span class="iva-subtotal-val" id="iva-ventas-total">$0,00</span>
+            </div>
+          </div>
+
+          <!-- SEPARADOR -->
+          <div class="iva-separador" aria-hidden="true">
+            <div class="iva-sep-line"></div>
+            <span class="iva-sep-signo">−</span>
+            <div class="iva-sep-line"></div>
+          </div>
+
+          <!-- BLOQUE IVA COMPRAS -->
+          <div class="iva-bloque" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+            <div class="iva-bloque-header">
+              <span class="iva-bloque-num" aria-hidden="true">02</span>
+              <h3 class="iva-bloque-titulo">IVA Compras</h3>
+              <p class="iva-bloque-desc">
+                El IVA que pagaste a tus proveedores en el período.
+              </p>
+            </div>
+
+            <div class="iva-filas" id="iva-compras-filas">
+              <!-- Las filas se generan dinámicamente con JS -->
+            </div>
+
+            <button class="iva-add-btn" id="iva-compras-add" type="button">
+              + Agregar compra
+            </button>
+
+            <div class="iva-subtotal">
+              <span class="iva-subtotal-label">Total IVA Compras</span>
+              <span class="iva-subtotal-val" id="iva-compras-total">$0,00</span>
+            </div>
+          </div>
+
+          <!-- SEPARADOR RETENCIONES -->
+          <div class="iva-separador" aria-hidden="true">
+            <div class="iva-sep-line"></div>
+            <span class="iva-sep-signo">−</span>
+            <div class="iva-sep-line"></div>
+          </div>
+
+          <!-- BLOQUE RETENCIONES -->
+          <div class="iva-bloque iva-bloque-credito"
+               data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+            <div class="iva-bloque-header">
+              <span class="iva-bloque-num" aria-hidden="true">03</span>
+              <h3 class="iva-bloque-titulo">Retenciones de IVA</h3>
+              <p class="iva-bloque-desc">
+                IVA que te retuvieron tus clientes al pagarte.
+                Generan crédito fiscal a tu favor.
+              </p>
+            </div>
+            <div class="iva-filas" id="iva-retenciones-filas"></div>
+            <button class="iva-add-btn" id="iva-retenciones-add" type="button">
+              + Agregar retención
+            </button>
+            <div class="iva-subtotal">
+              <span class="iva-subtotal-label">Total Retenciones</span>
+              <span class="iva-subtotal-val iva-subtotal-credito"
+                    id="iva-retenciones-total">$0,00</span>
+            </div>
+          </div>
+
+          <!-- SEPARADOR PERCEPCIONES -->
+          <div class="iva-separador" aria-hidden="true">
+            <div class="iva-sep-line"></div>
+            <span class="iva-sep-signo">−</span>
+            <div class="iva-sep-line"></div>
+          </div>
+
+          <!-- BLOQUE PERCEPCIONES -->
+          <div class="iva-bloque iva-bloque-credito"
+               data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
+            <div class="iva-bloque-header">
+              <span class="iva-bloque-num" aria-hidden="true">04</span>
+              <h3 class="iva-bloque-titulo">Percepciones de IVA</h3>
+              <p class="iva-bloque-desc">
+                IVA que te percibieron tus proveedores al venderte.
+                Generan crédito fiscal a tu favor.
+              </p>
+            </div>
+            <div class="iva-filas" id="iva-percepciones-filas"></div>
+            <button class="iva-add-btn" id="iva-percepciones-add" type="button">
+              + Agregar percepción
+            </button>
+            <div class="iva-subtotal">
+              <span class="iva-subtotal-label">Total Percepciones</span>
+              <span class="iva-subtotal-val iva-subtotal-credito"
+                    id="iva-percepciones-total">$0,00</span>
+            </div>
+          </div>
+
+          <!-- RESULTADO FINAL -->
+          <div class="iva-resultado" id="iva-resultado" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+            <div class="iva-resultado-inner">
+
+              <!-- Desglose completo -->
+              <div class="iva-res-fila">
+                <span class="iva-res-label">Débito Fiscal (IVA Ventas)</span>
+                <span class="iva-res-val" id="iva-res-ventas">$0,00</span>
+              </div>
+              <div class="iva-res-fila">
+                <span class="iva-res-label">− Crédito Fiscal (IVA Compras)</span>
+                <span class="iva-res-val" id="iva-res-compras">$0,00</span>
+              </div>
+              <div class="iva-res-fila">
+                <span class="iva-res-label">− Retenciones sufridas</span>
+                <span class="iva-res-val iva-val-credito" id="iva-res-retenciones">$0,00</span>
+              </div>
+              <div class="iva-res-fila">
+                <span class="iva-res-label">− Percepciones sufridas</span>
+                <span class="iva-res-val iva-val-credito" id="iva-res-percepciones">$0,00</span>
+              </div>
+
+              <div class="iva-res-divider"></div>
+
+              <div class="iva-res-saldo">
+                <span class="iva-res-saldo-label" id="iva-saldo-label">
+                  Saldo del período
+                </span>
+                <span class="iva-res-saldo-monto" id="iva-saldo-monto">
+                  $0,00
+                </span>
+              </div>
+
+              <div class="iva-res-badge" id="iva-badge"></div>
+
+              <div class="iva-res-disclaimer">
+                * Esta calculadora es orientativa. El IVA real puede variar según
+                saldo a favor de períodos anteriores, proporcionalidad por actividades
+                exentas y otros conceptos. Consultá con tu contador para la DDJJ definitiva.
+              </div>
+
+              <a href="#contacto" class="calc-res-cta"
+                 style="margin-top:1rem;display:inline-flex;">
+                Consultá con Facundo →
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+        <!-- /iva-wrapper -->
+
       </div>
     </section>
 
@@ -2607,6 +3169,214 @@
         calcInput.addEventListener("keydown", (e) => {
           if (e.key === "Enter") calcularMonotributo();
         });
+      }
+
+      // ─── CALCULADORA IVA RI ───
+
+      function formatARS_IVA(num) {
+        return num.toLocaleString("es-AR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+      }
+
+      let ivaIdCounter = 0;
+
+      // Crear fila CON alícuota (ventas y compras)
+      function crearFilaConAlicuota(tipo, id) {
+        const fila = document.createElement("div");
+        fila.className = "iva-fila";
+        fila.dataset.id = id;
+
+        fila.innerHTML = `
+          <input
+            class="iva-fila-desc"
+            type="text"
+            placeholder="${tipo === 'ventas'
+              ? 'Descripción (ej: Factura cliente)'
+              : 'Descripción (ej: Proveedor)'}"
+            aria-label="Descripción"
+          />
+          <input
+            class="iva-fila-monto"
+            type="number"
+            placeholder="Monto neto"
+            min="0"
+            step="0.01"
+            aria-label="Monto neto sin IVA"
+          />
+          <select class="iva-fila-alicuota" aria-label="Alícuota de IVA">
+            <option value="21">21%</option>
+            <option value="10.5">10,5%</option>
+            <option value="27">27%</option>
+            <option value="0">0%</option>
+          </select>
+          <button class="iva-fila-eliminar" type="button"
+                  aria-label="Eliminar fila">×</button>
+        `;
+
+        fila.querySelectorAll("input, select").forEach((el) => {
+          el.addEventListener("input", recalcularIVA);
+        });
+        fila.querySelector(".iva-fila-eliminar").addEventListener("click", () => {
+          fila.remove();
+          recalcularIVA();
+        });
+
+        return fila;
+      }
+
+      // Crear fila SIN alícuota (retenciones y percepciones)
+      // El usuario ingresa el monto de IVA directamente
+      function crearFilaSinAlicuota(tipo, id) {
+        const fila = document.createElement("div");
+        fila.className = "iva-fila iva-fila-ret";
+        fila.dataset.id = id;
+
+        const placeholder = tipo === "retenciones"
+          ? "Descripción (ej: Retención AFIP/ARCA)"
+          : "Descripción (ej: Percepción proveedor)";
+
+        fila.innerHTML = `
+          <input
+            class="iva-fila-desc"
+            type="text"
+            placeholder="${placeholder}"
+            aria-label="Descripción"
+          />
+          <input
+            class="iva-fila-monto"
+            type="number"
+            placeholder="Monto IVA"
+            min="0"
+            step="0.01"
+            aria-label="Monto de IVA retenido o percibido"
+          />
+          <button class="iva-fila-eliminar" type="button"
+                  aria-label="Eliminar fila">×</button>
+        `;
+
+        fila.querySelectorAll("input").forEach((el) => {
+          el.addEventListener("input", recalcularIVA);
+        });
+        fila.querySelector(".iva-fila-eliminar").addEventListener("click", () => {
+          fila.remove();
+          recalcularIVA();
+        });
+
+        return fila;
+      }
+
+      function agregarFila(tipo, autoFocus = true) {
+        const contenedor = document.getElementById(`iva-${tipo}-filas`);
+        if (!contenedor) return;
+        const id = ++ivaIdCounter;
+        const fila = (tipo === "ventas" || tipo === "compras")
+          ? crearFilaConAlicuota(tipo, id)
+          : crearFilaSinAlicuota(tipo, id);
+        contenedor.appendChild(fila);
+        if (autoFocus) {
+          fila.querySelector(".iva-fila-monto").focus();
+        }
+        recalcularIVA();
+      }
+
+      // Calcular total de un bloque
+      function calcularTotalBloque(tipo) {
+        const filas = document.querySelectorAll(`#iva-${tipo}-filas .iva-fila`);
+        let total = 0;
+        filas.forEach((fila) => {
+          const monto = parseFloat(
+            fila.querySelector(".iva-fila-monto").value
+          ) || 0;
+          const alicuotaEl = fila.querySelector(".iva-fila-alicuota");
+
+          if (alicuotaEl) {
+            // Ventas y compras: monto neto × alícuota
+            const alicuota = parseFloat(alicuotaEl.value) || 0;
+            total += monto * (alicuota / 100);
+          } else {
+            // Retenciones y percepciones: monto ES el IVA directamente
+            total += monto;
+          }
+        });
+        return total;
+      }
+
+      function recalcularIVA() {
+        const totalVentas       = calcularTotalBloque("ventas");
+        const totalCompras      = calcularTotalBloque("compras");
+        const totalRetenciones  = calcularTotalBloque("retenciones");
+        const totalPercepciones = calcularTotalBloque("percepciones");
+
+        // Saldo = Débito - Crédito - Retenciones - Percepciones
+        const saldo = totalVentas - totalCompras - totalRetenciones - totalPercepciones;
+
+        // Actualizar subtotales de cada bloque
+        document.getElementById("iva-ventas-total").textContent =
+          "$" + formatARS_IVA(totalVentas);
+        document.getElementById("iva-compras-total").textContent =
+          "$" + formatARS_IVA(totalCompras);
+        document.getElementById("iva-retenciones-total").textContent =
+          "$" + formatARS_IVA(totalRetenciones);
+        document.getElementById("iva-percepciones-total").textContent =
+          "$" + formatARS_IVA(totalPercepciones);
+
+        // Actualizar desglose del resultado
+        document.getElementById("iva-res-ventas").textContent =
+          "$" + formatARS_IVA(totalVentas);
+        document.getElementById("iva-res-compras").textContent =
+          "$" + formatARS_IVA(totalCompras);
+        document.getElementById("iva-res-retenciones").textContent =
+          "$" + formatARS_IVA(totalRetenciones);
+        document.getElementById("iva-res-percepciones").textContent =
+          "$" + formatARS_IVA(totalPercepciones);
+
+        // Saldo final
+        const montoEl = document.getElementById("iva-saldo-monto");
+        const labelEl = document.getElementById("iva-saldo-label");
+        const badgeEl = document.getElementById("iva-badge");
+
+        montoEl.textContent = "$" + formatARS_IVA(Math.abs(saldo));
+        montoEl.classList.remove("a-pagar", "a-favor", "neutro");
+        badgeEl.classList.remove("show", "badge-pagar", "badge-favor", "badge-neutro");
+
+        if (saldo > 0.005) {
+          labelEl.textContent = "Saldo a pagar a ARCA";
+          montoEl.classList.add("a-pagar");
+          badgeEl.classList.add("show", "badge-pagar");
+          badgeEl.textContent =
+            "Tu débito fiscal supera al crédito fiscal total. "
+            + "Tenés saldo a ingresar a ARCA en la próxima DDJJ.";
+        } else if (saldo < -0.005) {
+          labelEl.textContent = "Saldo a tu favor";
+          montoEl.classList.add("a-favor");
+          badgeEl.classList.add("show", "badge-favor");
+          badgeEl.textContent =
+            "Tu crédito fiscal supera al débito. "
+            + "Tenés saldo a favor trasladable al próximo período.";
+        } else {
+          labelEl.textContent = "Saldo del período";
+          montoEl.classList.add("neutro");
+          badgeEl.classList.add("show", "badge-neutro");
+          badgeEl.textContent = "Débito y crédito fiscal están equilibrados.";
+        }
+      }
+
+      // Inicializar botones y filas iniciales
+      const ivaVentasAdd       = document.getElementById("iva-ventas-add");
+      const ivaComprasAdd      = document.getElementById("iva-compras-add");
+      const ivaRetencionesAdd  = document.getElementById("iva-retenciones-add");
+      const ivaPercepcionesAdd = document.getElementById("iva-percepciones-add");
+
+      if (ivaVentasAdd) {
+        agregarFila("ventas", false);
+        agregarFila("compras", false);
+
+        ivaVentasAdd.addEventListener("click",       () => agregarFila("ventas"));
+        ivaComprasAdd.addEventListener("click",      () => agregarFila("compras"));
+        ivaRetencionesAdd.addEventListener("click",  () => agregarFila("retenciones"));
+        ivaPercepcionesAdd.addEventListener("click", () => agregarFila("percepciones"));
       }
 
       // ─── FAQ ACORDEÓN ───
